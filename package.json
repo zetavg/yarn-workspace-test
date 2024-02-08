@@ -3,5 +3,24 @@
   "packageManager": "yarn@4.1.0",
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "lint": "FORCE_COLOR=true yarn workspaces foreach --all --exclude . run g:lint",
+    "g:lint": "cd $INIT_CWD && eslint .",
+    "typecheck": "FORCE_COLOR=true yarn workspaces foreach --all --exclude . --exclude eslint-config-workspace run g:typecheck",
+    "g:typecheck": "cd $INIT_CWD && tsc --noEmit --pretty",
+    "test": "FORCE_COLOR=true yarn workspaces foreach --all --exclude . --exclude eslint-config-workspace run g:test",
+    "g:test": "cd $INIT_CWD && jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^29",
+    "@types/node": "^20",
+    "eslint": "^8",
+    "eslint-config-workspace": "workspace:^",
+    "jest": "^29",
+    "prettier": "^3",
+    "ts-jest": "^29",
+    "ts-node": "^10",
+    "typescript": "^5"
+  }
 }

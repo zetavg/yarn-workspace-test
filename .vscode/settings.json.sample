@@ -1,0 +1,13 @@
+{
+  "jest.runMode": {
+    "type": "watch",
+    "deferred": true
+  },
+  "jest.jestCommandLine": "yarn g:test",
+  "jest.virtualFolders": [
+    {
+      "name": "sum",
+      "rootPath": "packages/sum"
+    }
+  ]
+}
