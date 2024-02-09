@@ -3,7 +3,8 @@
   "packageManager": "yarn@4.1.0",
   "workspaces": [
     "configs/*",
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "scripts": {
     "lint": "yarn workspaces foreach --all --exclude . run lint",
