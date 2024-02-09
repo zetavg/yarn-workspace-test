@@ -1,0 +1,49 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**/README.md'
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches:
+      - main
+    paths-ignore:
+      - '**/README.md'
+  release:
+    types: [published]
+  # schedule:
+    # First Sunday of every month
+    # See: https://crontab.guru/#0_0_1-7_*_*/7
+    # - cron: '0 0 1-7 * */7'  # https://stackoverflow.com/a/73826599
+    # # Every Monday
+    # - cron: 0 0 * * 1
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages on called workflows
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        command:
+          - lint
+          - typecheck
+          - test
+        dir:
+          - packages/sum
+          - packages/plus-two
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Environment
+        uses: ./.github/actions/setup-environment
+      - name: Run
+        run: |
+          cd ${{ matrix.dir }}
+          yarn g:${{ matrix.command }}
