@@ -7,9 +7,10 @@
     "**/*.test.ts"
   ],
   "compilerOptions": {
-    "declaration": true,
     "paths": {},
+    "declaration": true,
+    "emitDeclarationOnly": true,
     "rootDir": "./src",
-    "outDir": "./dist"
+    "outDir": "./dist/types",
   },
 }
