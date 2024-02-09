@@ -13,7 +13,7 @@ export const getJestBaseConfig = ({ dirname }: { dirname: string }): Config => {
   const config: Config = {
     preset: 'ts-jest',
     verbose: true,
-    moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+    moduleNameMapper: pathsToModuleNameMapper(compilerOptions?.paths || {}, {
       prefix: '<rootDir>/',
     }),
     transform: {
