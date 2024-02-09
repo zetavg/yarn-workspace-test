@@ -1,4 +1,5 @@
 {
+  "extends": "tsconfig-workspace",
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
@@ -26,6 +27,7 @@
       ]
     }
   },
-  "include": ["src", ".storybook/**/*"],
+  // "include": ["src", ".storybook/**/*"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

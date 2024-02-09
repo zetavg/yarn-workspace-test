@@ -162,7 +162,6 @@ export const Opened: Story = {
 
     await step('Click on trigger', async () => {
       await userEvent.click(canvas.getByRole('button'));
-      // eslint-disable-next-line @typescript-eslint/unbound-method
       await waitFor(() => expect(args.onOpenChange).toHaveBeenCalled());
       await waitFor(() =>
         expect(canvas.getByText('My Account')).toBeInTheDocument(),

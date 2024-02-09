@@ -3,12 +3,10 @@ module.exports = {
   env: { browser: true, node: true, es2020: true },
   ignorePatterns: ['dist', '!.eslintrc.cjs', '!.prettierrc.cjs', '!.storybook'],
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
+    'workspace/base',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
-    'plugin:prettier/recommended',
     'plugin:storybook/recommended',
   ],
   plugins: ['react-refresh', 'simple-import-sort'],
@@ -16,42 +14,12 @@ module.exports = {
   settings: {
     react: { version: 'detect' },
   },
-  overrides: [
-    {
-      extends: [
-        'plugin:@typescript-eslint/recommended-type-checked',
-        'plugin:@typescript-eslint/stylistic-type-checked',
-      ],
-      parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        project: ['./tsconfig.json', './tsconfig.node.json'],
-        tsconfigRootDir: __dirname,
-      },
-      files: ['./**/*.{ts,tsx}'],
-      rules: {
-        '@typescript-eslint/no-unused-vars': 'warn',
-        '@typescript-eslint/consistent-type-definitions': 'warn',
-      },
-    },
-  ],
   rules: {
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
     ],
     'react/prop-types': 'off', // This rule failed to detect TypeScript defined types sometimes
-    'no-spaced-func': 'off',
-    '@typescript-eslint/no-unused-vars': [
-      'warn',
-      {
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-        caughtErrorsIgnorePattern: '^_',
-      },
-    ],
-    '@typescript-eslint/consistent-type-definitions': ['warn', 'type'],
-    'prettier/prettier': 'warn',
     'simple-import-sort/imports': [
       'warn',
       {
@@ -78,6 +46,5 @@ module.exports = {
         ],
       },
     ],
-    'simple-import-sort/exports': 'warn',
   },
 };
