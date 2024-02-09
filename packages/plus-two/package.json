@@ -1,0 +1,19 @@
+{
+  "name": "@yarn-workspace-test/plus-two",
+  "version": "0.0.5",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "dist/plusTwo.js",
+  "types": "dist/plusTwo.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "yarn g:tsc --project tsconfig.build.json"
+  },
+  "dependencies": {
+    "@yarn-workspace-test/sum": "workspace:^"
+  }
+}

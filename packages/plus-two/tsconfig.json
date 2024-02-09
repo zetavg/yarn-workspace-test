@@ -1,10 +1,9 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "declaration": true,
     "paths": {
-      "@/*": [
-        "./src/*"
+      "@yarn-workspace-test/sum": [
+        "../sum/src/sum"
       ]
     }
   },

@@ -1,9 +1,16 @@
 {
-  "name": "sum",
-  "version": "1.0.0",
+  "name": "@yarn-workspace-test/sum",
+  "version": "0.1.1",
   "description": "",
-  "main": "index.js",
+  "main": "dist/sum.js",
+  "types": "dist/sum.d.ts",
+  "files": [
+    "/dist"
+  ],
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "scripts": {
+    "build": "yarn g:tsc --project tsconfig.build.json"
+  }
 }

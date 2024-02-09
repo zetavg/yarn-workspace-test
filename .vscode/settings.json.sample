@@ -8,6 +8,10 @@
     {
       "name": "sum",
       "rootPath": "packages/sum"
+    },
+    {
+      "name": "plus-two",
+      "rootPath": "packages/plus-two"
     }
   ]
 }

@@ -10,7 +10,8 @@
     "typecheck": "FORCE_COLOR=true yarn workspaces foreach --all --exclude . --exclude eslint-config-workspace run g:typecheck",
     "g:typecheck": "cd $INIT_CWD && tsc --noEmit --pretty",
     "test": "FORCE_COLOR=true yarn workspaces foreach --all --exclude . --exclude eslint-config-workspace run g:test",
-    "g:test": "cd $INIT_CWD && jest"
+    "g:test": "cd $INIT_CWD && jest",
+    "g:tsc": "cd $INIT_CWD && tsc"
   },
   "devDependencies": {
     "@types/jest": "^29",

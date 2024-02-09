@@ -1256,6 +1256,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@yarn-workspace-test/plus-two@workspace:packages/plus-two":
+  version: 0.0.0-use.local
+  resolution: "@yarn-workspace-test/plus-two@workspace:packages/plus-two"
+  dependencies:
+    "@yarn-workspace-test/sum": "workspace:^"
+  languageName: unknown
+  linkType: soft
+
+"@yarn-workspace-test/sum@workspace:^, @yarn-workspace-test/sum@workspace:packages/sum":
+  version: 0.0.0-use.local
+  resolution: "@yarn-workspace-test/sum@workspace:packages/sum"
+  languageName: unknown
+  linkType: soft
+
 "abbrev@npm:^2.0.0":
   version: 2.0.0
   resolution: "abbrev@npm:2.0.0"
@@ -4259,12 +4273,6 @@ __metadata:
   checksum: 10c0/9681a6257b925a7fa0f285851c0e613cc934a50661fa7bb41ca9cbbff89686bb4a0ee366e6ecedc4daafd01e83eee0720111ab294366fe7c185e935475ebcecd
   languageName: node
   linkType: hard
-
-"sum@workspace:packages/sum":
-  version: 0.0.0-use.local
-  resolution: "sum@workspace:packages/sum"
-  languageName: unknown
-  linkType: soft
 
 "supports-color@npm:^5.3.0":
   version: 5.5.0
