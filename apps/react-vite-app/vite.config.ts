@@ -19,12 +19,9 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
       ...(compilerOptions?.paths
         ? Object.fromEntries(
-            Object.entries(compilerOptions?.paths).map(
-              ([from, to]: [string, Array<string>]) => [
-                from,
-                path.resolve(__dirname, to[0]),
-              ],
-            ),
+            Object.entries(
+              compilerOptions?.paths as Record<string, Array<string>>,
+            ).map(([from, to]) => [from, path.resolve(__dirname, to[0] || '')]),
           )
         : {}),
     },
