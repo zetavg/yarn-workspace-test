@@ -32,7 +32,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['./**/.eslintrc.js'],
+      files: ['./**/.eslintrc.js', './**/babel.config.js'],
       env: { node: true },
       rules: {
         '@typescript-eslint/no-var-requires': 'off',
