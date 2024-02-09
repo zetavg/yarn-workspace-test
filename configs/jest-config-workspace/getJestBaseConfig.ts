@@ -6,7 +6,7 @@ import { pathsToModuleNameMapper } from 'ts-jest';
 
 export const getJestBaseConfig = ({ dirname }: { dirname: string }): Config => {
   const tsConfig = JSON5.parse(
-    readFileSync(resolve(dirname, 'tsconfig.json'), 'utf8'),
+    readFileSync(resolve(dirname, 'tsconfig.json'),  'utf8'),
   );
   const { compilerOptions } = tsConfig;
 
