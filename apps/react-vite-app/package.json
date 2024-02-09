@@ -20,6 +20,8 @@
     "@radix-ui/react-dropdown-menu": "^2",
     "@radix-ui/react-icons": "^1",
     "@radix-ui/react-slot": "^1",
+    "@yarn-workspace-test/plus-four": "workspace:^",
+    "@yarn-workspace-test/plus-two": "workspace:^",
     "class-variance-authority": "^0",
     "clsx": "^2",
     "lucide-react": "^0.316.0",

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
+import plusFour from '@yarn-workspace-test/plus-four';
+import plusTwo from '@yarn-workspace-test/plus-two';
 
 import { ThemeProvider, useTheme } from '@/components/theme-provider';
 import { Button } from '@/components/ui/button';
@@ -53,7 +55,8 @@ function Welcome() {
               <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
                 src/App.tsx
               </code>{' '}
-              and save to reload.
+              and save to reload. One plus two equals {plusTwo(1)}. Two plus
+              four equals {plusFour(2)}.
             </p>
           </div>
           <div className="flex flex-row gap-2">

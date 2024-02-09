@@ -4959,7 +4959,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarn-workspace-test/plus-four@workspace:packages/plus-four":
+"@yarn-workspace-test/plus-four@workspace:^, @yarn-workspace-test/plus-four@workspace:packages/plus-four":
   version: 0.0.0-use.local
   resolution: "@yarn-workspace-test/plus-four@workspace:packages/plus-four"
   dependencies:
@@ -11720,6 +11720,8 @@ __metadata:
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
     "@vitejs/plugin-react": "npm:^4"
+    "@yarn-workspace-test/plus-four": "workspace:^"
+    "@yarn-workspace-test/plus-two": "workspace:^"
     autoprefixer: "npm:^10"
     class-variance-authority: "npm:^0"
     clsx: "npm:^2"
