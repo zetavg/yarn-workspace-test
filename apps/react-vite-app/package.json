@@ -14,7 +14,8 @@
     "storybook": "storybook dev -p 6006 --no-open",
     "test-storybook": "test-storybook",
     "build-storybook": "storybook build",
-    "build-storybook-docs": "storybook build --docs --output-dir storybook-docs-static"
+    "build-storybook-docs": "storybook build --docs --output-dir storybook-docs-static",
+    "clean": "rm -rf node_modules/.vite && rm -rf dist"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2",
