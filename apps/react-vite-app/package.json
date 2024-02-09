@@ -6,7 +6,7 @@
   "scripts": {
     "start": "yarn run dev",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "VITE_DISABLE_TS_PATHS=true vite build",
     "lint": "eslint . --ext js,cjs,ts,tsx --report-unused-disable-directives",
     "typecheck": "tsc --noEmit",
     "test": "jest",

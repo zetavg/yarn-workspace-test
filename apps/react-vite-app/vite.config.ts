@@ -17,7 +17,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      ...(compilerOptions?.paths
+      ...(compilerOptions?.paths && !process.env.VITE_DISABLE_TS_PATHS
         ? Object.fromEntries(
             Object.entries(
               compilerOptions?.paths as Record<string, Array<string>>,
