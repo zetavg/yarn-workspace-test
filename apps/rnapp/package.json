@@ -9,6 +9,9 @@
     "start": "react-native start",
     "test": "jest"
   },
+  "installConfig": {
+    "hoistingLimits": "workspaces"
+  },
   "dependencies": {
     "react": "18.2.0",
     "react-native": "0.71.10"
