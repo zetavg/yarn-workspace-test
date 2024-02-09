@@ -10,6 +10,6 @@
     "declaration": true,
     "paths": {},
     "rootDir": "./src",
-    "outDir": "./dist"
+    "outDir": "./dist",
   },
 }
