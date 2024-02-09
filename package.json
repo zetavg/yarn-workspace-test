@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "lint": "yarn workspaces foreach --all --exclude . run lint",
-    "typecheck": "yarn workspaces foreach --all --exclude . --exclude eslint-config-workspace run typecheck",
-    "test": "FORCE_COLOR=true yarn workspaces foreach --all --exclude . --exclude eslint-config-workspace run test"
+    "typecheck": "FORCE_COLOR=true yarn workspaces foreach --all --exclude . -vv run typecheck",
+    "test": "FORCE_COLOR=true yarn workspaces foreach --all --exclude . run test"
   }
 }
