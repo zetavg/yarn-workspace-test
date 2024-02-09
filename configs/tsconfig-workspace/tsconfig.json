@@ -3,7 +3,10 @@
     "target": "es6",
     "strict": true,
     "noUncheckedIndexedAccess": true,
-    "lib": ["ES2019", "ES2021.String"],
+    "lib": [
+      "ES2019",
+      "ES2021.String"
+    ],
     "esModuleInterop": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
@@ -14,5 +17,8 @@
     "isolatedModules": true,
     "declaration": true
   },
+  "include": [
+    "**/*.ts"
+  ],
   "exclude": []
 }

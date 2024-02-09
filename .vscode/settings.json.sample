@@ -3,7 +3,6 @@
     "type": "watch",
     "deferred": true
   },
-  "jest.jestCommandLine": "yarn g:test",
   "jest.virtualFolders": [
     {
       "name": "sum",
@@ -12,6 +11,10 @@
     {
       "name": "plus-two",
       "rootPath": "packages/plus-two"
+    },
+    {
+      "name": "plus-four",
+      "rootPath": "packages/plus-four"
     }
   ]
 }

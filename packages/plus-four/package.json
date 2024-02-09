@@ -1,5 +1,5 @@
 {
-  "name": "@yarn-workspace-test/plus-two",
+  "name": "@yarn-workspace-test/plus-four",
   "version": "0.0.5",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,7 +14,7 @@
     "publish": "yarn build && yarn npm publish --access public"
   },
   "dependencies": {
-    "@yarn-workspace-test/sum": "workspace:^"
+    "@yarn-workspace-test/plus-two": "workspace:^"
   },
   "devDependencies": {
     "@types/jest": "*",

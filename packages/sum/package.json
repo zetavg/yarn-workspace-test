@@ -1,16 +1,26 @@
 {
   "name": "@yarn-workspace-test/sum",
   "version": "0.1.1",
-  "description": "",
-  "main": "dist/sum.js",
-  "types": "dist/sum.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "/dist"
   ],
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "scripts": {
-    "build": "yarn g:tsc --project tsconfig.build.json"
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit --pretty",
+    "test": "jest",
+    "build": "tsc --project tsconfig.build.json",
+    "publish": "yarn build && yarn npm publish --access public"
+  },
+  "devDependencies": {
+    "@types/eslint": "*",
+    "@types/jest": "*",
+    "eslint": "*",
+    "eslint-config-workspace": "workspace:^",
+    "jest": "*",
+    "jest-config-workspace": "workspace:^",
+    "tsconfig-workspace": "workspace:^",
+    "typescript": "*"
   }
 }
