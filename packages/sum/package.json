@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit --pretty",
     "test": "jest",
     "build": "tsc --project tsconfig.build.json",
     "publish": "yarn build && yarn npm publish --access public"
