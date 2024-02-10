@@ -22,6 +22,7 @@ module.exports = {
         root: ['./'],
         extensions: EXTENSIONS,
         alias: {
+          '@': './src',
           ...(compilerOptions?.paths && !process.env.RN_DISABLE_TS_PATHS
             ? Object.fromEntries(
                 Object.entries(compilerOptions?.paths).map(([from, to]) => [
