@@ -56,13 +56,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Environment
+        uses: ./.github/actions/setup-environment
         with:
-          node-version: '20'
-      - name: Enable Corepack
-        shell: bash
-        run: corepack enable
+          skip_yarn_install: true
       - name: List packages with tests
         id: list_packages
         run: |
