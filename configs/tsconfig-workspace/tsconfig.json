@@ -16,10 +16,5 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "declaration": true
-  },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": []
+  }
 }
