@@ -16,6 +16,6 @@
   },
   "inherits": [
     "yarn-workspace-test/package.babel-runtime.json",
-    "eslint-config-workspace/package.json"
+    "eslint-config-workspace/package.dependencies.json"
   ]
 }
