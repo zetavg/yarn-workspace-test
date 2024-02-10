@@ -26,7 +26,7 @@ module.exports = {
             ? Object.fromEntries(
                 Object.entries(compilerOptions?.paths).map(([from, to]) => [
                   from,
-                  path.resolve(__dirname, to[0] || '', 'index'),
+                  path.resolve(__dirname, to[0] || ''),
                 ])
               )
             : {}),
