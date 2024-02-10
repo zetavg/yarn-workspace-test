@@ -12,6 +12,9 @@
   "installConfig": {
     "hoistingLimits": "workspaces"
   },
+  "inherits": [
+    "yarn-workspace-test/package.babel-runtime.json"
+  ],
   "dependencies": {
     "@yarn-workspace-test/plus-two": "workspace:^",
     "react": "18.2.0",
@@ -20,7 +23,6 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@babel/preset-env": "^7.20.0",
-    "@babel/runtime": "^7.20.0",
     "@react-native-community/eslint-config": "^3.2.0",
     "@tsconfig/react-native": "^2.0.2",
     "@types/jest": "^29.2.1",
