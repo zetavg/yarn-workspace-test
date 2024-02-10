@@ -26,4 +26,6 @@ runs:
     - name: Install dependencies
       if: ${{ inputs.skip_yarn_install != 'true' }}
       shell: bash
-      run: yarn install
+      run: |
+        yarn preinstall
+        yarn install
