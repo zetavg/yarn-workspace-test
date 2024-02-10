@@ -1,5 +1,8 @@
 {
   "name": "eslint-config-workspace",
+  "scripts": {
+    "lint": "eslint ."
+  },
   "peerDependencies": {
     "eslint": "^8"
   },
@@ -11,5 +14,8 @@
     "eslint-plugin-prettier": "^5",
     "eslint-plugin-simple-import-sort": "^10",
     "prettier": "^3"
+  },
+  "devDependencies": {
+    "eslint": "^8"
   }
 }

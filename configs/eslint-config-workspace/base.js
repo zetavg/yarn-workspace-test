@@ -10,6 +10,7 @@ module.exports = {
   parserOptions: {
     requireConfigFile: false,
   },
+  ignorePatterns: ['**/dist/*'],
   rules: {
     'prettier/prettier': [
       'warn',
