@@ -49,15 +49,48 @@ jobs:
         run: |
           yarn typecheck
 
+  prepare-test:
+    runs-on: ubuntu-latest
+    outputs:
+      workspace_locations: ${{ steps.list_packages.outputs.output }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Enable Corepack
+        shell: bash
+        run: corepack enable
+      - name: List packages with tests
+        id: list_packages
+        run: |
+          # Initialize an empty array to store locations with a test script
+          workspace_locations_with_test=()
+
+          # Process each workspace location from the 'yarn workspaces list --json' output
+          while IFS= read -r line; do
+            # Extract the workspace location, excluding the root
+            workspace_location=$(echo "$line" | jq -r 'select(.location != ".") | .location')
+
+            # Check if 'package.json' exists and contains a 'test' script
+            if [ -f "$workspace_location/package.json" ] && jq -e '.scripts.test' "$workspace_location/package.json" > /dev/null; then
+              # Add the workspace location to the array
+              workspace_locations_with_test+=("$workspace_location")
+            fi
+          done < <(yarn workspaces list --json)
+
+          # Convert the array of locations into a JSON array
+          echo "output=$(jq -cn --argjson paths "$(jq -n '$ARGS.positional' --args "${workspace_locations_with_test[@]}")" '$paths')" >> $GITHUB_OUTPUT
+
   test:
+    needs: prepare-test
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        dir:
-          - packages/sum
-          - packages/plus-two
-          - packages/plus-four
+        dir: ${{ fromJson(needs.prepare-test.outputs.workspace_locations) }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
