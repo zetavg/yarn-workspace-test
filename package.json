@@ -17,5 +17,18 @@
   "inherits": [
     "yarn-workspace-test/package.babel-runtime.json",
     "eslint-config-workspace/package.dependencies.json"
-  ]
+  ],
+  "devDependencies": {
+    "eslint": "^8"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7",
+    "@typescript-eslint/eslint-plugin": "^6",
+    "@typescript-eslint/parser": "^6",
+    "eslint-config-prettier": "^9",
+    "eslint-plugin-jest": "^27",
+    "eslint-plugin-prettier": "^5",
+    "eslint-plugin-simple-import-sort": "^10",
+    "prettier": "^3"
+  }
 }

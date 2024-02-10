@@ -16,6 +16,7 @@
     "yarn-workspace-test/package.babel-runtime.json"
   ],
   "dependencies": {
+    "@babel/runtime": "^7",
     "@yarn-workspace-test/plus-two": "workspace:^",
     "react": "18.2.0",
     "react-native": "0.71.10"

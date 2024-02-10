@@ -1594,7 +1594,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.23.7, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7, @babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.23.7, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.23.9
   resolution: "@babel/runtime@npm:7.23.9"
   dependencies:
@@ -14122,6 +14122,7 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.20.0"
     "@babel/preset-env": "npm:^7.20.0"
+    "@babel/runtime": "npm:^7"
     "@react-native-community/eslint-config": "npm:^3.2.0"
     "@tsconfig/react-native": "npm:^2.0.2"
     "@types/jest": "npm:^29.2.1"
@@ -16331,6 +16332,16 @@ __metadata:
 "yarn-workspace-test@workspace:.":
   version: 0.0.0-use.local
   resolution: "yarn-workspace-test@workspace:."
+  dependencies:
+    "@babel/runtime": "npm:^7"
+    "@typescript-eslint/eslint-plugin": "npm:^6"
+    "@typescript-eslint/parser": "npm:^6"
+    eslint: "npm:^8"
+    eslint-config-prettier: "npm:^9"
+    eslint-plugin-jest: "npm:^27"
+    eslint-plugin-prettier: "npm:^5"
+    eslint-plugin-simple-import-sort: "npm:^10"
+    prettier: "npm:^3"
   languageName: unknown
   linkType: soft
 
