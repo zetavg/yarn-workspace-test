@@ -15,5 +15,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7"
+  },
+  "devDependencies": {
+    "eslint-plugin-prettier": "*"
   }
 }
