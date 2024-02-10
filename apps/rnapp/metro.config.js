@@ -26,9 +26,11 @@ module.exports = {
   watchFolders: [
     path.resolve(__dirname, '../../node_modules'),
     ...(compilerOptions?.paths && !process.env.RN_DISABLE_TS_PATHS
-      ? Object.values(compilerOptions?.paths).map((folders) =>
-          path.resolve(__dirname, folders[0] || '')
-        )
-      : []),
+      ? Object.values(compilerOptions?.paths).flatMap((folders) => [
+          path.resolve(__dirname, folders[0] || ''),
+          path.resolve(__dirname, folders[0] || '', '..', 'node_modules'),
+        ])
+      : []
+    ).filter((folder) => fs.existsSync(folder)),
   ],
 };
