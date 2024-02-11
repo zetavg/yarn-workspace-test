@@ -62,11 +62,11 @@ jobs:
         with:
           skip_yarn_install: true
       - name: List packages with tests
-        uses: zetavg/yarn-workspace-packages-list-action@v0
+        uses: zetavg/yarn-workspace-packages-list-action@v1
         id: list-packages
         with:
           # A condition that checks if the package has a "test" script defined in its package.json.
-          condition: '[ -f "$package_location/package.json" ] && jq -e ".scripts.test" "$package_location/package.json"'
+          condition: '[ -f "$package_path/package.json" ] && jq -e ".scripts.test" "$package_path/package.json"'
 
   test:
     needs: prepare-test
