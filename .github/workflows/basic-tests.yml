@@ -52,7 +52,8 @@ jobs:
   prepare-test:
     runs-on: ubuntu-latest
     outputs:
-      workspace_locations: ${{ steps.list-packages.outputs.package-paths }}
+      # Expose the package path output from the list-packages step for other jobs to use it.
+      package-paths: ${{ steps.list-packages.outputs.package-paths }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -61,30 +62,11 @@ jobs:
         with:
           skip_yarn_install: true
       - name: List packages with tests
-        uses: ./.github/actions/yarn-workspace-packages-list
+        uses: zetavg/yarn-workspace-packages-list-action@v0
         id: list-packages
         with:
+          # A condition that checks if the package has a "test" script defined in its package.json.
           condition: '[ -f "$package_location/package.json" ] && jq -e ".scripts.test" "$package_location/package.json"'
-      # - name: List packages with tests
-      #   id: list_packages
-      #   run: |
-      #     # Initialize an empty array to store locations with a test script
-      #     workspace_locations_with_test=()
-
-      #     # Process each workspace location from the 'yarn workspaces list --json' output
-      #     while IFS= read -r line; do
-      #       # Extract the workspace location, excluding the root
-      #       workspace_location=$(echo "$line" | jq -r 'select(.location != ".") | .location')
-
-      #       # Check if 'package.json' exists and contains a 'test' script
-      #       if [ -f "$workspace_location/package.json" ] && jq -e '.scripts.test' "$workspace_location/package.json" > /dev/null; then
-      #         # Add the workspace location to the array
-      #         workspace_locations_with_test+=("$workspace_location")
-      #       fi
-      #     done < <(yarn workspaces list --json)
-
-      #     # Convert the array of locations into a JSON array
-      #     echo "output=$(jq -cn --argjson paths "$(jq -n '$ARGS.positional' --args "${workspace_locations_with_test[@]}")" '$paths')" >> $GITHUB_OUTPUT
 
   test:
     needs: prepare-test
@@ -92,7 +74,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        dir: ${{ fromJson(needs.prepare-test.outputs.workspace_locations) }}
+        package: ${{ fromJson(needs.prepare-test.outputs.package-paths) }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -100,7 +82,7 @@ jobs:
         uses: ./.github/actions/setup-environment
       - name: Test
         run: |
-          cd ${{ matrix.dir }}
+          cd ${{ matrix.package }}
           yarn test
 
   # test:
