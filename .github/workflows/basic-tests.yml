@@ -52,21 +52,25 @@ jobs:
   prepare-test:
     runs-on: ubuntu-latest
     outputs:
-      # Expose the package path output from the list-packages step for other jobs to use it.
-      package-paths: ${{ steps.list-packages.outputs.package-paths }}
+      # Expose the workspace path output from the list-workspaces step for other jobs to use it.
+      workspace-paths: ${{ steps.list-workspaces.outputs.workspace-paths }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
       - name: Setup Environment
         uses: ./.github/actions/setup-environment
         with:
           skip_yarn_install: true
-      - name: List packages with tests
-        uses: zetavg/yarn-workspace-packages-list-action@v1
-        id: list-packages
+      # Use the yarn-workspaces-list-action to list all workspaces that have a test script.
+      - name: List workspaces with tests
+        uses: zetavg/yarn-workspaces-list-action@v2.pre1
+        id: list-workspaces
         with:
-          # A condition that checks if the package has a "test" script defined in its package.json.
-          condition: '[ -f "$package_path/package.json" ] && jq -e ".scripts.test" "$package_path/package.json"'
+          # A condition that checks if the workspace has a "test" script defined in its package.json.
+          condition: '[ -f "$workspace_path/package.json" ] && jq -e ".scripts.test" "$workspace_path/package.json"'
+          workspace-root: . # Optional, defaults to the root of the repository (".").
 
   test:
     needs: prepare-test
@@ -74,7 +78,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        package: ${{ fromJson(needs.prepare-test.outputs.package-paths) }}
+        # Use the workspace paths from the prepare-test job to create a matrix of workspaces to test.
+        dir: ${{ fromJson(needs.prepare-test.outputs.workspace-paths) }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -82,7 +87,7 @@ jobs:
         uses: ./.github/actions/setup-environment
       - name: Test
         run: |
-          cd ${{ matrix.package }}
+          cd ${{ matrix.dir }}
           yarn test
 
   # test:
